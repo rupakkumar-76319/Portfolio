@@ -93,7 +93,7 @@ The animated guide girl "Aria" lives in `src/components/GuideGirl.jsx`.
 - Update her messages in `portfolioData.js` under `guideMessages`
 
 ## Deployment
-Works on Vercel, Netlify, GitHub Pages:
+Works on Vercel
 ```bash
 npm run build
 # Deploy the /dist folder
