@@ -84,11 +84,14 @@ export default function ContactSection() {
             </div>
 
             <div className="contact-cta-row">
-              <button
+              
+              <a
+                href="mailto:rupakkumar76319@gmail.com"
                 className="primary-btn"
-                onClick={() => window.location.href = `mailto:${personalInfo.email}`}>
+              >
                 Contact Me
-              </button>
+              </a>
+              
               <button
                 className="secondary-btn"
                 onClick={() =>window.open(personalInfo.resumeUrl, "_blank", "noopener,noreferrer")}>
