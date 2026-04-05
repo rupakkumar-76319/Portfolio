@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>E-Commerce Sales Analytics Dashboard</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #0a0f1c, #020617);
+      color: #e6edf3;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      color: #f2c811; /* Power BI Yellow */
+    }
+
+    .subtitle {
+      color: #8b949e;
+      margin-bottom: 30px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      color: #00d4ff;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      background: rgba(242,200,17,0.1);
+      border: 1px solid rgba(242,200,17,0.3);
+      padding: 5px 10px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+    }
+
+    .img {
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.1);
+      margin-top: 10px;
+    }
+
+    .btn {
+      text-decoration: none;
+      color: white;
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 8px 14px;
+      margin-right: 10px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      transition: 0.2s;
+    }
+
+    .btn:hover {
+      border-color: #f2c811;
+      color: #f2c811;
+    }
+  </style>
+</head>
+
+<body>
+<div class="container">
+
+  <h1>E-Commerce Sales Analytics Dashboard</h1>
+  <p class="subtitle">
+    Power BI dashboard for analyzing sales performance, customer behavior, and product trends using 541K+ records.
+  </p>
+
+  
+    <div class="card">
+        <h3>📌 Overview</h3>
+        <p>
+            This project presents an end-to-end business intelligence solution built using Power BI and SQL on a large-scale e-commerce dataset containing over 541,000 records.
+        </p>
+        <p>
+            The objective was to analyze sales performance, customer behavior, product trends, and time-based growth patterns to derive actionable business insights.
+        </p>
+        <p>
+            Advanced data modeling and DAX calculations were implemented to compute key performance indicators such as Month-over-Month (MoM) growth, Year-over-Year (YoY) growth, Average Order Value (AOV), and revenue contribution metrics.
+        </p>
+        <p>
+            The final dashboard enables interactive exploration of data through drill-down visualizations, helping stakeholders make data-driven decisions effectively.
+        </p>
+    </div>
+
+  
+  <div class="card">
+    <h3>⚙️ Tech Stack</h3>
+    <div class="tags">
+      <span class="tag">Power BI</span>
+      <span class="tag">SQL</span>
+      <span class="tag">DAX</span>
+      <span class="tag">Data Analysis</span>
+    </div>
+  </div>
+
+  
+  <div class="card">
+    <h3>📊 Key KPIs</h3>
+    <ul>
+      <li>Total Sales: $242.97K</li>
+      <li>Total Orders: 1998</li>
+      <li>Total Quantity: 134K</li>
+      <li>Average Order Value (AOV): $121.60</li>
+      <li>Sales YOY Growth: 629.82%</li>
+    </ul>
+  </div>
+
+  
+  <div class="card">
+    <h3>🧠 Advanced DAX Measures</h3>
+    <ul>
+      <li>Month-over-Month (MoM) Growth</li>
+      <li>Year-over-Year (YoY) Growth</li>
+      <li>Average Order Value (AOV)</li>
+      <li>Revenue Contribution Analysis</li>
+    </ul>
+  </div>
+
+  
+  <div class="card">
+    <h3>👥 Customer Analytics</h3>
+    <p>
+      Performed segmentation of customers into new and returning groups and analyzed their revenue contributions.
+    </p>
+    <img src="\public\images\E_commerce_sales_and_analytics\Customer Analytics.png" class="img">
+  </div>
+
+  
+  <div class="card">
+    <h3>📦 Product Performance</h3>
+    <p>
+      Identified top-performing products and analyzed their contribution to total revenue.
+    </p>
+    <img src="\public\images\E_commerce_sales_and_analytics\Product Performance Analysis.png" class="img">
+  </div>
+
+  <div class="card">
+    <h3>🌍 Regional Sales Analysis</h3>
+    <p>
+      Visualized global sales distribution across countries using map-based insights.
+    </p>
+    <img src="\public\images\E_commerce_sales_and_analytics\Country Analysis.png" class="img">
+  </div>
+
+  <div class="card">
+    <h3>📈 Executive Overview</h3>
+    <p>
+      High-level KPI dashboard summarizing overall business performance and growth trends.
+    </p>
+    <img src="\public\images\E_commerce_sales_and_analytics\Executive Overview.png" class="img">
+  </div>
+
+  <div class="card">
+    <h3>📄 Dashboard Report</h3>
+    <p>
+        Download the complete Power BI dashboard report containing all visualizations and analysis.
+    </p>
+
+    <a href="\public\pdf_models\E_commerce_sales_and_analytics\E-Commerce Sales Performance & Customer Analytics.pdf" target="_blank" class="btn">
+        📥 View / Download PDF
+    </a>
+  </div>
+
+  <div class="card">
+    <h3>💡 Key Insights</h3>
+    <ul>
+      <li>Major revenue is driven by a small number of top customers</li>
+      <li>New customers contribute significantly more revenue than returning customers</li>
+      <li>Sales show strong YoY growth indicating business expansion</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>🔮 Future Improvements</h3>
+    <ul>
+      <li>Integrate real-time data pipelines</li>
+      <li>Add forecasting models</li>
+      <li>Deploy dashboard to cloud for public access</li>
+    </ul>
+  </div>
+
+  <div class="links">
+      <a href="https://app.powerbi.com/groups/me/reports/169c2686-9f52-4315-90b5-6924a181f9b6/" class="btn" target="_blank">Power BI</a>
+  </div>
+
+</div>
+</body>
+</html>

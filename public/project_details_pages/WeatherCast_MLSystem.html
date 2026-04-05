@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Weather Cast ML System</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #0a0f1c, #020617);
+      color: #e6edf3;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+      color: #00ffaa;
+    }
+
+    .subtitle {
+      color: #8b949e;
+      margin-bottom: 30px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      backdrop-filter: blur(10px);
+    }
+
+    h3 {
+      margin-bottom: 10px;
+      color: #00d4ff;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      background: rgba(0, 255, 170, 0.08);
+      border: 1px solid rgba(0, 255, 170, 0.2);
+      padding: 5px 10px;
+      font-size: 0.75rem;
+      border-radius: 6px;
+    }
+
+    .pipeline {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .step {
+      background: rgba(0, 212, 255, 0.08);
+      padding: 6px 10px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+    }
+
+    .arrow {
+      color: #00d4ff;
+    }
+
+    .links {
+      margin-top: 20px;
+    }
+
+    .btn {
+      text-decoration: none;
+      color: white;
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 8px 14px;
+      margin-right: 10px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      transition: 0.2s;
+    }
+
+    .btn:hover {
+      border-color: #00ffaa;
+      color: #00ffaa;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <h1>Weather Cast ML System</h1>
+    <p class="subtitle">
+      End-to-end Machine Learning system for rainfall prediction with deployed API.
+    </p>
+
+    <div class="card">
+      <h3>📌 Overview</h3>
+      <p>
+          The Weather Cast ML System is an end-to-end machine learning application designed to predict whether it will rain the next day using historical weather data.
+      </p>
+      <p>
+          The project covers the complete ML lifecycle including data preprocessing, feature engineering, model training, evaluation, and deployment via a REST API.
+      </p>
+      <p>
+          It is built with a strong focus on real-world usability, allowing users to input weather parameters and receive instant predictions through a deployed interface.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>⚙️ Tech Stack</h3>
+      <div class="tags">
+        <span class="tag">Python</span>
+        <span class="tag">Scikit-learn</span>
+        <span class="tag">FastAPI</span>
+        <span class="tag">XGBoost</span>
+        <span class="tag">Pandas</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>🔄 Pipeline</h3>
+      <div class="pipeline">
+        <span class="step">Data</span>
+        <span class="arrow">→</span>
+        <span class="step">Preprocessing</span>
+        <span class="arrow">→</span>
+        <span class="step">Model</span>
+        <span class="arrow">→</span>
+        <span class="step">Deploy</span>
+      </div>
+    </div>
+
+    <div class="card">
+        <h3>🧠 How Prediction Works</h3>
+        <p>
+            The system takes multiple weather-related inputs such as temperature, humidity, wind speed, and pressure.
+        </p>
+        <ul>
+            <li>Data is preprocessed (handling missing values, encoding categorical features)</li>
+            <li>Features are scaled and transformed</li>
+            <li>Multiple ML models are trained and compared</li>
+            <li>Best model (based on accuracy & performance) is selected</li>
+         <li>Final prediction is returned via FastAPI endpoint</li>
+        </ul>
+    </div>
+
+    <div class="card">
+       <h3>🖼️ Application Preview</h3>
+       <img src="\public\images\wheather_ml\homepage.png" alt="Weather App UI" style="width:100%; border-radius:10px; border:1px solid rgba(255,255,   255,0.1);" />
+       <img src="\public\images\wheather_ml\Prediction_result_Not_rain.png" alt="UI During not Rain" style="width:100%; border-radius:10px; border:1px solid rgba(255,255,   255,0.1);" />
+       <img src="\public\images\wheather_ml\Prediction_result_rain.png" alt="UI During Rain" style="width:100%; border-radius:10px; border:1px solid rgba(255,255,   255,0.1);" />
+    </div>
+
+    <div class="card">
+      <h3>🚧 Challenges & Solutions</h3>
+      <ul>
+        <li>Handled missing and inconsistent weather data</li>
+        <li>Improved model performance using feature selection</li>
+        <li>Deployed model efficiently using FastAPI</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>✨ Key Features</h3>
+      <ul>
+        <li>End-to-end ML pipeline</li>
+        <li>Multiple model comparison</li>
+        <li>REST API deployment</li>
+        <li>Real-time prediction interface</li>
+      </ul>
+    </div>
+
+    <div class="links">
+      <a href="https://github.com/rupakkumar-76319/weathercast-ml-systems_Full" class="btn" target="_blank">GitHub</a>
+      <a href="https://weathercast-ml-systems.onrender.com/" class="btn" target="_blank">Live Demo</a>
+    </div>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,210 @@
+.guide-girl {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 5000;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s, transform 0.5s;
+  pointer-events: none;
+}
+
+.guide-girl.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+/* Dismiss button */
+.guide-dismiss {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 22px;
+  height: 22px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  font-size: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.guide-dismiss:hover {
+  color: var(--accent-primary);
+  border-color: var(--accent-primary);
+}
+
+/* Speech Bubble */
+.guide-bubble {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--border-active);
+  border-radius: 12px 12px 0 12px;
+  padding: 14px 18px;
+  max-width: 240px;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.1);
+  transform: scale(0.95);
+  opacity: 0.9;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.guide-bubble.talking {
+  transform: scale(1);
+  opacity: 1;
+  animation: bubble-pulse 0.4s ease;
+}
+
+@keyframes bubble-pulse {
+  0% { transform: scale(0.95); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+
+.guide-bubble p {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: var(--text-primary);
+  line-height: 1.5;
+  margin-top: 6px;
+}
+
+.bubble-dot {
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accent-primary);
+  margin-right: 3px;
+  animation: dot-bounce 1.4s infinite ease-in-out;
+}
+
+.bubble-dot:nth-child(2) { animation-delay: 0.2s; }
+.bubble-dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes dot-bounce {
+  0%, 80%, 100% { transform: scale(0.7); opacity: 0.5; }
+  40% { transform: scale(1); opacity: 1; }
+}
+
+/* Character */
+.guide-character {
+  position: relative;
+  width: 90px;
+  animation: float 3s ease-in-out infinite;
+}
+
+.guide-character.waving .arm-left {
+  animation: wave-hand 0.4s ease-in-out 3;
+}
+
+.girl-svg {
+  width: 90px;
+  height: auto;
+  filter: drop-shadow(0 0 12px rgba(0, 212, 255, 0.2));
+}
+
+/* Eye blink */
+.blink {
+  animation: eye-blink 0.15s ease-in-out;
+}
+
+@keyframes eye-blink {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(0.05); }
+}
+
+/* Arm wave */
+@keyframes wave-hand {
+  0% { transform: rotate(0deg); }
+  30% { transform: rotate(-30deg); }
+  60% { transform: rotate(10deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* Float */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Particles */
+.guide-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.guide-particles span {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accent-primary);
+  opacity: 0;
+  animation: particle-float 2.5s ease-in-out infinite;
+}
+
+.guide-particles span:nth-child(1) {
+  top: 20%; left: -10px;
+  animation-delay: 0s;
+}
+.guide-particles span:nth-child(2) {
+  top: 40%; right: -10px;
+  animation-delay: 0.8s;
+  background: var(--accent-secondary);
+}
+.guide-particles span:nth-child(3) {
+  top: 10%; left: 50%;
+  animation-delay: 1.5s;
+  background: #00ffaa;
+}
+
+@keyframes particle-float {
+  0% { opacity: 0; transform: translateY(0) scale(0); }
+  50% { opacity: 0.8; }
+  100% { opacity: 0; transform: translateY(-30px) scale(1.5); }
+}
+
+/* Name tag */
+.guide-nametag {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border: 1px solid var(--border-subtle);
+  background: rgba(0,212,255,0.03);
+}
+
+.nametag-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent-primary);
+  animation: pulse-glow 1.5s ease-in-out infinite;
+}
+
+@media (max-width: 768px) {
+  .guide-girl {
+    bottom: 16px;
+    right: 16px;
+  }
+
+  .guide-character { width: 70px; }
+  .girl-svg { width: 70px; }
+  .guide-bubble { max-width: 190px; }
+  .guide-bubble p { font-size: 0.72rem; }
+}

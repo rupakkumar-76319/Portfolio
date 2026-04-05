@@ -1,0 +1,190 @@
+/* ==============================
+   TIMELINE SECTION
+============================== */
+
+.timeline-section {
+  position: relative;
+  padding: 100px 0;
+  font-size: 1.04rem;
+}
+
+/* ==============================
+   CENTER LINE
+============================== */
+
+.timeline {
+  position: relative;
+  margin-top: 60px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--accent-primary),
+    transparent
+  );
+  opacity: 0.6;
+}
+
+/* ==============================
+   TIMELINE ITEMS
+============================== */
+
+.timeline-item {
+  width: 50%;
+  position: relative;
+  padding: 20px 40px;
+
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.6s ease;
+}
+
+.timeline-item.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.timeline-item.left {
+  left: 0;
+  text-align: right;
+  padding-right: 60px; /* push toward center */
+}
+
+.timeline-item.right {
+  left: 50%;
+  text-align: left;
+  padding-left: 60px; /* push toward center */
+}
+
+/* ==============================
+   DOT ON LINE
+============================== */
+
+.timeline-item::after {
+  content: "";
+  position: absolute;
+  top: 32px;
+  width: 14px;
+  height: 14px;
+  background: var(--accent-primary);
+  border-radius: 50%;
+  box-shadow: 0 0 12px var(--accent-primary);
+}
+
+.timeline-item.left::after {
+  right: -7px;
+}
+
+.timeline-item.right::after {
+  left: -7px;
+}
+
+/* ==============================
+   CARD DESIGN (PREMIUM)
+============================== */
+
+.timeline-content {
+  position: relative;
+  background: rgba(15, 20, 30, 0.6);
+  backdrop-filter: blur(12px);
+  border-radius: 14px;
+  padding: 1.6rem;
+  border: 1px solid rgba(255,255,255,0.06);
+  transition: all 0.35s ease;
+}
+
+/* Hover depth */
+.timeline-content:hover {
+  transform: translateY(-6px);
+  border-color: rgba(0,255,255,0.25);
+  box-shadow:
+    0 12px 30px rgba(0,0,0,0.45),
+    0 0 25px rgba(0,255,255,0.08);
+}
+
+/* ==============================
+   CARD ARROWS (CONNECT TO LINE)
+============================== */
+
+.timeline-item.left .timeline-content::after {
+  content: "";
+  position: absolute;
+  right: -10px;
+  top: 28px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent transparent rgba(15,20,30,0.9);
+}
+
+.timeline-item.right .timeline-content::after {
+  content: "";
+  position: absolute;
+  left: -10px;
+  top: 28px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent rgba(15,20,30,0.9) transparent transparent;
+}
+
+/* ==============================
+   TEXT STYLING
+============================== */
+
+.timeline-title {
+  font-size: 1.3rem;
+  margin: 0.4rem 0;
+}
+
+.timeline-desc {
+  font-size: 0.96rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ==============================
+   FOCUS TAGS (SKILL CHIPS)
+============================== */
+
+.timeline-focus {
+  margin-top: 12px;
+}
+
+.focus-tag {
+  display: inline-block;
+  margin: 4px 6px 0 0;
+  padding: 5px 12px;
+  font-size: 0.78rem;
+  border-radius: 999px;
+  background: rgba(0,255,255,0.08);
+  border: 1px solid rgba(0,255,255,0.25);
+  color: var(--accent-primary);
+  transition: 0.25s ease;
+}
+
+.focus-tag:hover {
+  background: rgba(0,255,255,0.18);
+}
+
+.timeline-line {
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--accent-primary),
+    transparent
+  );
+  width: 2px;
+}
+
+.timeline-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 30px rgba(0,212,255,0.15);
+}
