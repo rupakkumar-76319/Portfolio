@@ -10,7 +10,7 @@ export const personalInfo = {
   email: "rupakkumar76319@gmail.com",
   github: "https://github.com/rupakkumar-76319",
   linkedin: "https://www.linkedin.com/in/rupak-kumar-76319-24f2001886/",
-  resumeUrl: "/pdf_models/Resume/Resume_DA.pdf",
+  resumeUrl: "/pdf_models/Resume/Resume_ML.pdf",
 }
 
 export const aboutText = {
