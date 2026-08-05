@@ -1,0 +1,261 @@
+/* ==============================
+   CERTIFICATES SECTION
+============================== */
+
+.certificates-section {
+  position: relative;
+  padding: 100px 0;
+  background: var(--bg-primary);
+}
+
+.cert-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.cert-reveal.in-view { opacity: 1; transform: translateY(0); }
+
+/* ==============================
+   FILTERS
+============================== */
+
+.cert-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 40px 0;
+}
+
+.cert-filter-btn {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-secondary);
+  padding: 8px 20px;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cert-filter-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+}
+
+.cert-count {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+}
+
+/* Active Filter Colors */
+.cert-filter-btn.active.all {
+  background: rgba(0, 212, 255, 0.15);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+}
+.cert-filter-btn.active.ai-eng {
+  background: rgba(123, 47, 255, 0.15);
+  border-color: var(--accent-secondary);
+  color: var(--accent-secondary);
+}
+.cert-filter-btn.active.ml-eng {
+  background: rgba(0, 212, 255, 0.15);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+}
+.cert-filter-btn.active.data-analysis {
+  background: rgba(0, 255, 170, 0.15);
+  border-color: #00ffaa;
+  color: #00ffaa;
+}
+
+/* ==============================
+   GRID
+============================== */
+
+.certificates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+/* ==============================
+   CARD DESIGN
+============================== */
+
+.cert-card {
+  position: relative;
+  background: rgba(15, 20, 30, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 16px;
+  padding: 30px;
+  transition: all 0.4s ease;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Color Themes by Category */
+.cert-card.ai-eng:hover {
+  border-color: var(--accent-secondary);
+  box-shadow: 0 10px 30px -10px rgba(123, 47, 255, 0.15);
+  transform: translateY(-6px);
+}
+.cert-card.ml-eng:hover {
+  border-color: var(--accent-primary);
+  box-shadow: 0 10px 30px -10px rgba(0, 212, 255, 0.15);
+  transform: translateY(-6px);
+}
+.cert-card.data-analysis:hover {
+  border-color: #00ffaa;
+  box-shadow: 0 10px 30px -10px rgba(0, 255, 170, 0.15);
+  transform: translateY(-6px);
+}
+
+/* Category Badge */
+.cert-badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 0.65rem;
+  font-family: var(--font-mono);
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.cert-card.ai-eng .cert-badge {
+  background: rgba(123, 47, 255, 0.1);
+  color: var(--accent-secondary);
+}
+.cert-card.ml-eng .cert-badge {
+  background: rgba(0, 212, 255, 0.1);
+  color: var(--accent-primary);
+}
+.cert-card.data-analysis .cert-badge {
+  background: rgba(0, 255, 170, 0.1);
+  color: #00ffaa;
+}
+
+/* ==============================
+   CARD CONTENT
+============================== */
+
+.cert-icon-wrapper {
+  width: 50px;
+  height: 50px;
+  background: rgba(255,255,255,0.03);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.cert-icon {
+  font-size: 1.5rem;
+}
+
+.cert-name {
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  margin: 0 0 12px 0;
+  line-height: 1.4;
+}
+
+/* Title colors on hover */
+.cert-card.ai-eng:hover .cert-name { color: #ff6b35; }
+.cert-card.ml-eng:hover .cert-name { color: var(--accent-primary); }
+.cert-card.data-analysis:hover .cert-name { color: #00ffaa; }
+
+.cert-issuer {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+  flex-grow: 1;
+}
+
+/* ==============================
+   FOOTER
+============================== */
+
+.cert-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  padding-top: 20px;
+}
+
+.cert-date {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.cert-verify-btn {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  transition: 0.3s ease;
+}
+
+.cert-card.ai-eng:hover .cert-verify-btn { color: var(--accent-secondary); }
+.cert-card.ml-eng:hover .cert-verify-btn { color: var(--accent-primary); }
+.cert-card.data-analysis:hover .cert-verify-btn { color: #00ffaa; }
+
+/* ==============================
+   RESPONSIVE
+============================== */
+
+@media (max-width: 768px) {
+  .certificates-section {
+    padding: 60px 0;
+  }
+
+  .certificates-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .cert-filters {
+    gap: 8px;
+    margin: 24px 0;
+  }
+
+  .cert-filter-btn {
+    padding: 6px 14px;
+    font-size: 0.75rem;
+  }
+
+  .cert-card {
+    padding: 20px;
+  }
+
+  .cert-name {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cert-badge {
+    font-size: 0.55rem;
+    padding: 3px 8px;
+  }
+
+  .cert-icon-wrapper {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 16px;
+  }
+}

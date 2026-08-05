@@ -1,0 +1,161 @@
+/* ==============================
+   EXPERIENCE SECTION
+============================== */
+
+.experience-section {
+  position: relative;
+  padding: 100px 0;
+}
+
+.exp-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.exp-reveal.in-view { opacity: 1; transform: translateY(0); }
+
+.experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-top: 60px;
+}
+
+.exp-card {
+  background: rgba(15, 20, 30, 0.6);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.4s ease;
+  border-left: 4px solid var(--accent-secondary);
+}
+
+.exp-card:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: 0 10px 30px -10px rgba(123, 47, 255, 0.2);
+  border-color: rgba(123, 47, 255, 0.3);
+  border-left: 4px solid var(--accent-secondary);
+}
+
+.exp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.exp-role {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin: 0 0 8px 0;
+}
+
+.exp-company-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.exp-company {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.exp-type {
+  font-size: 0.75rem;
+  background: rgba(123, 47, 255, 0.1);
+  color: var(--accent-secondary);
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(123, 47, 255, 0.2);
+}
+
+.exp-date {
+  font-size: 0.9rem;
+  color: var(--accent-primary);
+  background: rgba(0, 212, 255, 0.1);
+  padding: 6px 14px;
+  border-radius: 999px;
+}
+
+.exp-body {
+  margin-bottom: 24px;
+}
+
+.exp-desc {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.exp-focus-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.exp-focus-tags .focus-tag {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-secondary);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.exp-card:hover .exp-focus-tags .focus-tag {
+  color: var(--text-primary);
+  border-color: rgba(123, 47, 255, 0.3);
+}
+
+.exp-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 20px;
+  display: flex;
+}
+
+.exp-cert-btn {
+  display: inline-flex;
+  align-items: center;
+  color: var(--accent-secondary);
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  background: rgba(123, 47, 255, 0.1);
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(123, 47, 255, 0.2);
+}
+
+.exp-cert-btn:hover {
+  background: var(--accent-secondary);
+  color: #000;
+}
+
+@media (max-width: 768px) {
+  .exp-header {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .experience-section {
+    padding: 60px 0;
+  }
+
+  .exp-card {
+    padding: 24px 20px;
+    border-left-width: 3px;
+  }
+
+  .exp-tags {
+    gap: 6px;
+  }
+
+  .exp-tag {
+    font-size: 0.7rem;
+    padding: 4px 10px;
+  }
+}

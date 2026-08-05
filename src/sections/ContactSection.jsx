@@ -5,6 +5,7 @@ import './ContactSection.css'
 export default function ContactSection() {
   const ref = useRef(null)
   const [copied, setCopied] = useState(false)
+  const [showResumeMenu, setShowResumeMenu] = useState(false)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -21,10 +22,30 @@ export default function ContactSection() {
     setTimeout(() => setCopied(false), 2000)
   }
 
+  // Handle clicking outside the resume menu to close it
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (showResumeMenu && !e.target.closest('.resume-dropdown-wrapper')) {
+        setShowResumeMenu(false)
+      }
+    }
+    document.addEventListener('click', handleClickOutside)
+    return () => document.removeEventListener('click', handleClickOutside)
+  }, [showResumeMenu])
+
+  const openResume = (type) => {
+    let url = personalInfo.resumeUrl; // default ML
+    if (type === 'ai') url = '/pdf_models/Resume/Resume_AI.pdf';
+    if (type === 'data') url = '/pdf_models/Resume/Rupak_DS_Resume.pdf';
+
+    window.open(url, "_blank", "noopener,noreferrer");
+    setShowResumeMenu(false);
+  }
+
   return (
     <section id="contact" className="contact-section" ref={ref}>
       <div className="container">
-        <div className="section-label ct-reveal"><span>06</span> Contact</div>
+        <div className="section-label ct-reveal"><span>08</span> Contact</div>
         <h2 className="section-title ct-reveal">
           Let's Build Something <span style={{ color: 'var(--accent-primary)' }}>Intelligent</span>
         </h2>
@@ -77,26 +98,57 @@ export default function ContactSection() {
                 <div>
                   <div className="contact-label mono">LinkedIn</div>
                   <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" className="contact-value">
-                    {personalInfo.linkedin.replace('https://', '')}
+                    Initialize Connection ()
                   </a>
                 </div>
               </div>
             </div>
 
             <div className="contact-cta-row">
-              
+
               <a
-                href="mailto:rupakkumar76319@gmail.com"
+                href={`mailto:${personalInfo.email}`}
                 className="primary-btn"
+                style={{ display: 'flex', alignItems: 'center' }}
               >
-                Contact Me
+                Email
               </a>
-              
-              <button
-                className="secondary-btn"
-                onClick={() =>window.open(personalInfo.resumeUrl, "_blank", "noopener,noreferrer")}>
-                Download Resume
-              </button>
+
+              <div className="resume-dropdown-wrapper" style={{ position: 'relative' }}>
+                <button
+                  className="secondary-btn"
+                  style={{ display: 'flex', alignItems: 'center', width: '100%' }}
+                  onClick={() => setShowResumeMenu(!showResumeMenu)}>
+                  Extract Resume <span className="mono" style={{ fontSize: '0.9rem', opacity: 0.7, marginLeft: '8px' }}>[PDF] ▼</span>
+                </button>
+
+                {showResumeMenu && (
+                  <div className="resume-dropdown-menu">
+                    <div className="resume-dropdown-header mono">Select Target Profile:</div>
+                    <button className="resume-dropdown-item ai-theme" onClick={() => openResume('ai')}>
+                      <span className="r-icon">🤖</span>
+                      <div className="r-text">
+                        <strong>AI Engineer</strong>
+                        <span>Agentic AI & LLMs</span>
+                      </div>
+                    </button>
+                    <button className="resume-dropdown-item ml-theme" onClick={() => openResume('ml')}>
+                      <span className="r-icon">⚙️</span>
+                      <div className="r-text">
+                        <strong>ML Engineer</strong>
+                        <span>Pipelines & Models</span>
+                      </div>
+                    </button>
+                    <button className="resume-dropdown-item da-theme" onClick={() => openResume('data')}>
+                      <span className="r-icon">📊</span>
+                      <div className="r-text">
+                        <strong>Data Science</strong>
+                        <span>Analytics & SQL</span>
+                      </div>
+                    </button>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
 
@@ -126,7 +178,7 @@ export default function ContactSection() {
                 </div>
                 <div className="t-line">{'}'}</div>
                 <div className="t-line" style={{ marginTop: '10px' }}>
-                  <span className="t-cmd">if</span> opportunity == 
+                  <span className="t-cmd">if</span> opportunity ==
                   <span style={{ color: '#00ffaa' }}> "AI/ML Internship"</span>:
                 </div>
 

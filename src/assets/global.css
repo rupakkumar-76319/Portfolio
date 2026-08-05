@@ -298,4 +298,24 @@ a {
 /* ---- RESPONSIVE ---- */
 @media (max-width: 768px) {
   :root { --section-padding: 60px; }
+
+  .section-subtitle {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  :root { --section-padding: 48px; }
+
+  .section-title {
+    font-size: clamp(1.6rem, 6vw, 2.2rem);
+  }
+
+  .section-subtitle {
+    font-size: 0.88rem;
+  }
+
+  .section-label {
+    font-size: 0.65rem;
+  }
 }

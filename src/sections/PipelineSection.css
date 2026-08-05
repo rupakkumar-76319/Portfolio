@@ -3,6 +3,89 @@
   position: relative;
 }
 
+/* ===== Workflow Tabs ===== */
+.workflow-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 28px;
+  padding: 4px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-subtle);
+  border-radius: 999px;
+  width: fit-content;
+}
+
+.workflow-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.workflow-tab::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.workflow-tab:hover {
+  color: var(--text-secondary);
+  border-color: var(--border-subtle);
+}
+
+.workflow-tab.active {
+  color: var(--accent-primary);
+  border-color: var(--accent-primary);
+  background: rgba(0, 212, 255, 0.08);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.12), inset 0 0 12px rgba(0, 212, 255, 0.04);
+}
+
+.workflow-tab.ai-tab.active {
+  color: var(--accent-secondary);
+  border-color: var(--accent-secondary);
+  background: rgba(123, 47, 255, 0.08);
+  box-shadow: 0 0 20px rgba(123, 47, 255, 0.12), inset 0 0 12px rgba(123, 47, 255, 0.04);
+}
+
+.tab-icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* AI accent variant for detail card */
+.detail-card.ai-accent {
+  border-color: rgba(123, 47, 255, 0.3);
+  box-shadow: 0 0 40px rgba(123, 47, 255, 0.08);
+}
+
+.detail-card.ai-accent .detail-step-num {
+  color: var(--accent-secondary);
+}
+
+.detail-card.ai-accent .progress-dot.active {
+  background: var(--accent-secondary);
+  box-shadow: 0 0 8px var(--accent-secondary);
+}
+
+.detail-card.ai-accent .progress-dot.done {
+  background: rgba(123, 47, 255, 0.3);
+}
+
+
 .pipe-reveal {
   opacity: 0;
   transform: translateY(28px);
@@ -201,6 +284,15 @@
 @media (max-width: 900px) {
   .pipeline-container { grid-template-columns: 1fr; }
   .detail-card { position: static; }
+  .workflow-tabs {
+    width: 100%;
+  }
+  .workflow-tab {
+    flex: 1;
+    justify-content: center;
+    padding: 8px 14px;
+    font-size: 0.7rem;
+  }
 }
 
 .detail-tools {

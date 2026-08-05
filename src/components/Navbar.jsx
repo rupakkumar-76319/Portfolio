@@ -1,12 +1,14 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import "./Navbar.css";
 
 const navLinks = [
   { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
-  { label: "Pipeline", href: "#pipeline" },
+  { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
+  { label: "Methodology", href: "#pipeline" },
+  { label: "Certificates", href: "#certificates" },
   { label: "Timeline", href: "#timeline" },
   { label: "Contact", href: "#contact" },
 ];
@@ -14,7 +16,6 @@ const navLinks = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [darkMode, setDarkMode] = useState(true);
   const [showModal, setShowModal] = useState(false);
   
   const [formData, setFormData] = useState({
@@ -63,21 +64,6 @@ export default function Navbar() {
   });
 
   setShowModal(false);
-
-
-  console.log("Form Data:", formData);
-
-  alert("Message sent!");
-
-  // clear form
-  setFormData({
-    name: "",
-    phone: "",
-    email: "",
-    message: "",
-  });
-
-  setShowModal(false);
 };
 
   useEffect(() => {
@@ -86,10 +72,6 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const toggleTheme = () => {
-    setDarkMode(!darkMode);
-    document.body.classList.toggle("light-mode");
-  };
 
   return (
     <>

@@ -5,11 +5,14 @@ import AboutSection from './sections/AboutSection'
 import SkillsSection from './sections/SkillsSection'
 import PipelineSection from './sections/PipelineSection'
 import ProjectsSection from './sections/ProjectsSection'
+import ExperienceSection from './sections/ExperienceSection'
+import CertificatesSection from './sections/CertificatesSection'
 import TimelineSection from './sections/TimelineSection'
 import ContactSection from './sections/ContactSection'
 import Footer from './components/Footer'
 import LoadingScreen from './components/LoadingScreen'
 import CustomCursor from './components/CustomCursor'
+import BackToTop from './components/BackToTop'
 import Lenis from 'lenis'
 
 function App() {
@@ -37,11 +40,14 @@ function App() {
             <HeroSection />
             <AboutSection />
             <SkillsSection />
-            <PipelineSection />
+            <ExperienceSection />
             <ProjectsSection />
+            <PipelineSection />
+            <CertificatesSection />
             <TimelineSection />
             <ContactSection />
           </main>
+          <BackToTop />
           <Footer />
         </>
       )}

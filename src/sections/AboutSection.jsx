@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from 'react'
 import { aboutText } from '../data/portfolioData'
-import { ChevronDown } from "lucide-react";
 import './AboutSection.css'
 
 export default function AboutSection() {

@@ -25,15 +25,15 @@ export default function TimelineSection() {
     <section id="timeline" className="timeline-section" ref={ref}>
       <div className="container">
 
-        <div className="section-label">
-          <span>04</span> Journey
+        <div className="section-label proj-reveal in-view">
+          <span>07</span> Journey
         </div>
 
-        <h2 className="section-title">
+        <h2 className="section-title proj-reveal in-view">
           My Learning <span style={{ color: "var(--accent-primary)" }}>Path</span>
         </h2>
 
-        <p className="section-subtitle">
+        <p className="section-subtitle proj-reveal in-view">
           From building fundamentals to developing intelligent systems —
           my journey into AI/ML engineering.
         </p>
@@ -42,12 +42,14 @@ export default function TimelineSection() {
           {timeline.map((item, i) => (
             <div
               key={i}
-              className={`timeline-item ${i % 2 === 0 ? "left" : "right"}`}
+              className={`timeline-item ${i % 2 === 0 ? "left" : "right"} ${item.type || 'base'}`}
             >
+              <div className="timeline-node"></div>
+              
               <div className="timeline-content">
 
                 <span className="timeline-date mono">
-                  📍 {item.date}
+                  {item.date}
                 </span>
 
                 <h3 className="timeline-title">
@@ -60,12 +62,11 @@ export default function TimelineSection() {
 
                 <div className="timeline-focus">
                   <span className="mono focus-label">Focus:</span>
-
-                  <ul>
+                  <div className="focus-tags">
                     {item.focus.map((f, idx) => (
-                      <li key={idx}>{f}</li>
+                      <span key={idx} className="focus-tag">{f}</span>
                     ))}
-                  </ul>
+                  </div>
                 </div>
 
               </div>

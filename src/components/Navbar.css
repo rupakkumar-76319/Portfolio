@@ -1,373 +1,402 @@
+/* ═══════════════════════════════════════════════════
+   NAVBAR — Glassmorphic Cyberpunk
+   ═══════════════════════════════════════════════════ */
+
 .navbar {
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 1000;
-
-  background: rgba(5,10,15,0.6);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-
+  background: rgba(3, 6, 9, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid transparent;
-  transition: all 0.35s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .navbar.scrolled {
-  background: rgba(5,10,15,0.9);
-  border-bottom: 1px solid var(--border-subtle);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+  background: rgba(3, 6, 9, 0.85);
+  border-bottom: 1px solid rgba(0, 212, 255, 0.06);
+  box-shadow:
+    0 1px 0 0 rgba(0, 212, 255, 0.05),
+    0 8px 32px rgba(0, 0, 0, 0.35);
 }
 
-/* =========================
-   INNER CONTAINER
-========================= */
-
+/* ── Inner container ──────────────────────────────── */
 .navbar-inner {
-  max-width: 1200px;
+  max-width: 1300px;
   margin: auto;
-  padding: 14px 24px;
-
+  padding: 16px 28px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-/* =========================
-   LOGO
-========================= */
-
+/* ── Logo ─────────────────────────────────────────── */
 .navbar-logo {
   text-decoration: none;
-  font-family: var(--font-mono);
-  font-size: 1.1rem;
+  font-family: 'JetBrains Mono', var(--font-mono), monospace;
+  font-size: 1.15rem;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.navbar-logo:hover {
+  transform: scale(1.05);
+}
+
+.navbar-logo:hover .logo-bracket {
+  text-shadow: 0 0 15px rgba(0, 212, 255, 0.6);
 }
 
 .logo-bracket {
   color: var(--accent-primary);
+  font-weight: 400;
+  transition: text-shadow 0.3s ease;
 }
 
 .logo-name {
   color: var(--text-primary);
-  font-weight: 600;
-  margin: 0 4px;
+  font-weight: 700;
+  margin: 0 3px;
+  background: linear-gradient(135deg, #ffffff 0%, var(--accent-primary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-/* =========================
-   LINKS
-========================= */
-
+/* ── Links ────────────────────────────────────────── */
 .navbar-links {
   list-style: none;
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 6px;
 }
 
 .navbar-links li a {
   text-decoration: none;
   color: var(--text-secondary);
-  font-size: 0.9rem;
+  font-family: 'JetBrains Mono', var(--font-mono), monospace;
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: 8px;
   position: relative;
-  transition: all 0.25s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  letter-spacing: 0.02em;
 }
 
-/* // prefix */
 .link-num {
   color: var(--accent-primary);
-  opacity: 0.6;
-  margin-right: 6px;
-}
-
-/* hover underline */
-.navbar-links li a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  width: 0%;
-  height: 2px;
-  background: var(--accent-primary);
-  transition: width 0.3s ease;
+  opacity: 0.4;
+  margin-right: 4px;
+  font-weight: 400;
+  transition: opacity 0.3s ease;
 }
 
 .navbar-links li a:hover {
   color: var(--accent-primary);
+  background: rgba(0, 212, 255, 0.06);
+}
+
+.navbar-links li a:hover .link-num {
+  opacity: 0.9;
+}
+
+/* Animated underline */
+.navbar-links li a::after {
+  content: "";
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 4px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .navbar-links li a:hover::after {
-  width: 100%;
+  transform: scaleX(1);
+  transform-origin: left;
 }
 
-/* =========================
-   CTA BUTTON
-========================= */
+/* Active link */
+.navbar-links a.active {
+  color: var(--accent-primary);
+  background: rgba(0, 212, 255, 0.08);
+}
 
+.navbar-links a.active::after {
+  transform: scaleX(1);
+}
+
+/* ── CTA Button ───────────────────────────────────── */
 .nav-cta {
-  padding: 8px 16px;
-  border: 1px solid var(--accent-primary);
-  border-radius: 6px;
+  padding: 9px 22px;
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 8px;
+  background: rgba(0, 212, 255, 0.06);
   color: var(--accent-primary) !important;
-  transition: all 0.25s ease;
+  font-family: 'JetBrains Mono', var(--font-mono), monospace;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: none;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--accent-primary), #0099cc);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  z-index: 0;
+}
+
+.nav-cta:hover::before {
+  opacity: 1;
 }
 
 .nav-cta:hover {
-  background: var(--accent-primary);
-  color: #021014 !important;
-  box-shadow: 0 0 16px rgba(0,212,255,0.35);
+  color: #020810 !important;
+  border-color: transparent;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(0, 212, 255, 0.3);
 }
 
-/* =========================
-   HAMBURGER
-========================= */
-
+/* ── Hamburger ────────────────────────────────────── */
 .hamburger {
   display: none;
   flex-direction: column;
-  gap: 5px;
+  gap: 6px;
   border: none;
   background: none;
   cursor: pointer;
+  padding: 4px;
+  position: relative;
+  z-index: 10;
 }
 
 .hamburger span {
-  width: 24px;
+  width: 26px;
   height: 2px;
   background: var(--text-primary);
-  transition: all 0.3s ease;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 2px;
 }
 
 .hamburger.open span:nth-child(1) {
-  transform: rotate(45deg) translateY(7px);
+  transform: rotate(45deg) translateY(8px);
+  background: var(--accent-primary);
 }
 
 .hamburger.open span:nth-child(2) {
   opacity: 0;
+  transform: scaleX(0);
 }
 
 .hamburger.open span:nth-child(3) {
-  transform: rotate(-45deg) translateY(-7px);
+  transform: rotate(-45deg) translateY(-8px);
+  background: var(--accent-primary);
 }
 
-/* =========================
-   MOBILE MENU
-========================= */
+/* ═══════════════════════════════════════════════════
+   MODAL (Hire Me Form)
+   ═══════════════════════════════════════════════════ */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  animation: overlay-in 0.25s ease;
+}
+
+@keyframes overlay-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal {
+  background: linear-gradient(145deg, #0d1520 0%, #080e18 100%);
+  border: 1px solid rgba(0, 212, 255, 0.1);
+  padding: 36px;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 520px;
+  position: relative;
+  animation: modal-in 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow:
+    0 24px 64px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(0, 212, 255, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.modal h2 {
+  margin-bottom: 24px;
+  font-family: 'Syne', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--text-primary), var(--accent-primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.modal input,
+.modal textarea {
+  width: 100%;
+  margin-bottom: 14px;
+  padding: 13px 16px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 212, 255, 0.08);
+  background: rgba(0, 212, 255, 0.03);
+  color: var(--text-primary);
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.modal input:focus,
+.modal textarea:focus {
+  border-color: rgba(0, 212, 255, 0.3);
+  background: rgba(0, 212, 255, 0.05);
+  box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.06);
+}
+
+.modal input::placeholder,
+.modal textarea::placeholder {
+  color: var(--text-muted);
+}
+
+.modal textarea {
+  min-height: 120px;
+  resize: none;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 14px;
+  font-size: 0.9rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  background: linear-gradient(135deg, var(--accent-primary), #0099cc);
+  border: none;
+  border-radius: 10px;
+  color: #020810;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 4px;
+}
+
+.submit-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 24px rgba(0, 212, 255, 0.3);
+}
+
+/* Close button */
+.close-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: bold;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-muted);
+  transition: all 0.25s ease;
+}
+
+.close-btn:hover {
+  background: rgba(255, 77, 77, 0.1);
+  color: #ff4d4d;
+  border-color: rgba(255, 77, 77, 0.3);
+  transform: scale(1.05);
+}
+
+/* ═══════════════════════════════════════════════════
+   MOBILE
+   ═══════════════════════════════════════════════════ */
 
 @media (max-width: 900px) {
-
   .hamburger {
     display: flex;
   }
 
   .navbar-links {
     position: absolute;
-    right: 20px;
-    top: 70px;
-
+    right: 16px;
+    top: 68px;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 18px;
-
-    padding: 24px;
-
-    background: rgba(5,10,15,0.95);
-    border: 1px solid var(--border-subtle);
-    backdrop-filter: blur(16px);
-
+    align-items: stretch;
+    gap: 4px;
+    padding: 16px;
+    min-width: 220px;
+    background: rgba(8, 13, 20, 0.95);
+    border: 1px solid rgba(0, 212, 255, 0.08);
+    border-radius: 14px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     opacity: 0;
-    transform: translateY(-15px);
+    transform: translateY(-10px) scale(0.97);
     pointer-events: none;
-
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
   }
 
   .navbar-links.open {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
     pointer-events: auto;
   }
-}
 
-.navbar-links a.active {
-  color: var(--accent-primary);
-}
-
-.navbar-links a.active::after {
-  width: 100%;
-}
-
-/* THEME BUTTON */
-.theme-toggle {
-  margin-left: 20px;
-  font-size: 1.2rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-/* LIGHT MODE */
-body.light-mode {
-  --text-primary: #111;
-  --text-secondary: #444;
-  --accent-primary: #0077ff;
-  --border-subtle: #ddd;
-  background: #ffffff;
-}
-
-/* ================= MODAL ================= */
-
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.6);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 2000;
-}
-
-.modal {
-  background: #0b1117;
-  padding: 32px;
-  border-radius: 14px;
-
-  width: 90%;
-  max-width: 600px;   /* 🔥 BIG SIZE */
-
-  position: relative;
-  animation: fadeIn 0.25s ease;
-}
-
-/* Light mode */
-body.light-mode .modal {
-  background: #ffffff;
-}
-
-
-.modal h2 {
-  margin-bottom: 20px;
-  font-size: 1.5rem;
-}
-
-.modal input,
-.modal textarea {
-  width: 100%;
-  margin-bottom: 16px;   /* more spacing */
-  padding: 12px 14px;    /* bigger inputs */
-
-  font-size: 1rem;
-
-  border-radius: 8px;
-  border: 1px solid var(--border-subtle);
-
-  background: transparent;
-  color: var(--text-primary);
-}
-
-.modal textarea {
-  min-height: 120px;   /* bigger textarea */
-  resize: none;
-}
-
-.submit-btn {
-  width: 100%;
-  padding: 12px;
-  font-size: 1rem;
-
-  background: var(--accent-primary);
-  border: none;
-  border-radius: 8px;
-
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.submit-btn:hover {
-  opacity: 0.9;
-}
-
-/* CLOSE BUTTON */
-.close-btn {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-
-  width: 34px;
-  height: 34px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 50%;
-  cursor: pointer;
-
-  font-size: 1rem;
-  font-weight: bold;
-
-  border: 1px solid var(--border-subtle);
-  background: rgba(255, 255, 255, 0.05);
-  color: #ff4d4d;
-
-  transition: all 0.25s ease;
-}
-
-/* Hover effect */
-.close-btn:hover {
-  background: #ff4d4d;
-  color: #fff;
-  border-color: #ff4d4d;
-  transform: scale(1.08);
-}
-
-/* Dark mode tweak */
-body:not(.light-mode) .close-btn {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-/* Light mode version */
-body.light-mode .close-btn {
-  background: #ffffff;
-  border: 1px solid #ddd;
-  color: #ff4d4d;
-}
-
-/* Light mode hover */
-body.light-mode .close-btn:hover {
-  background: #ff4d4d;
-  color: #ffffff;
-  border-color: #ff4d4d;
-}
-/* ANIMATION */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
+  .navbar-links li a {
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 0.85rem;
   }
-  to {
-    opacity: 1;
-    transform: scale(1);
+
+  .navbar-links li a:hover {
+    background: rgba(0, 212, 255, 0.08);
   }
-}
 
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-
-  background: rgba(0, 0, 0, 0.5);
-
-  backdrop-filter: blur(8px);        /* 🔥 THIS DOES BLUR */
-  -webkit-backdrop-filter: blur(8px);
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  z-index: 2000;
+  .nav-cta {
+    margin-top: 4px;
+    text-align: center;
+    width: 100%;
+  }
 }
